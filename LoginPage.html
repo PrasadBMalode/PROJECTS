@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Login</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #4e73df;
+            --secondary-color: #858796;
+            --bg-gradient: linear-gradient(135deg, #4e73df 0%, #224abe 100%);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-gradient);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .login-card {
+            border: none;
+            border-radius: 1rem;
+            box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: fadeIn 0.8s ease-out;
+            width: 100%;
+            max-width: 400px; /* Professional card width */
+        }
+
+        .card-header-custom {
+            background-color: #fff;
+            border-bottom: none;
+            padding-top: 2rem;
+            padding-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .brand-logo {
+            width: 60px;
+            height: 60px;
+            background: #eef2ff;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 1rem auto;
+        }
+
+        .form-floating > label {
+            color: var(--secondary-color);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(78, 115, 223, 0.25);
+        }
+
+        .btn-primary-custom {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            padding: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #224abe;
+            border-color: #224abe;
+            transform: translateY(-1px);
+        }
+
+        .social-btn {
+            width: 100%;
+            margin-bottom: 0.8rem;
+            font-size: 0.9rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: #aaa;
+            margin: 1.5rem 0;
+            font-size: 0.85rem;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .divider::before { margin-right: .5em; }
+        .divider::after { margin-left: .5em; }
+
+        .alert-box {
+            display: none; /* Hidden by default */
+            margin-bottom: 1rem;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Input group icon styling */
+        .input-group-text {
+            background-color: #fff;
+            border-right: none;
+            color: var(--secondary-color);
+        }
+        
+        .form-control-icon {
+            border-left: none;
+        }
+        
+        .form-control-icon:focus {
+            box-shadow: none;
+            border-color: #ced4da; /* Reset focus shadow because input-group has it */
+        }
+        
+        /* Ensure focus wraps the whole group */
+        .input-group:focus-within {
+            box-shadow: 0 0 0 0.25rem rgba(78, 115, 223, 0.25);
+            border-radius: 0.375rem;
+        }
+        
+        .input-group:focus-within .form-control {
+            border-color: var(--primary-color);
+        }
+        .input-group:focus-within .input-group-text {
+            border-color: var(--primary-color);
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5">
+                
+                <div class="card login-card p-3 p-md-4">
+                    <div class="card-header-custom">
+                        <div class="brand-logo">
+                            <i class="bi bi-shield-lock-fill"></i>
+                        </div>
+                        <h3 class="fw-bold mb-0">Welcome Back</h3>
+                        <p class="text-muted small mb-3">Please enter your details to sign in.</p>
+                    </div>
+                    
+                    <div class="card-body">
+                        
+                        <!-- Alert Area for Feedback -->
+                        <div id="loginAlert" class="alert alert-danger alert-dismissible fade show alert-box" role="alert">
+                            <span id="alertMessage">Error message here</span>
+                            <button type="button" class="btn-close" onclick="hideAlert()"></button>
+                        </div>
+
+                        <form id="loginForm" class="needs-validation" novalidate>
+                            
+                            <!-- Email Input -->
+                            <div class="form-group mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0">
+                                        <i class="bi bi-envelope"></i>
+                                    </span>
+                                    <input type="email" class="form-control border-start-0 ps-0" id="email" placeholder="name@example.com" required>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid email.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Password Input -->
+                            <div class="form-group mb-3">
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white border-end-0">
+                                        <i class="bi bi-key"></i>
+                                    </span>
+                                    <input type="password" class="form-control border-start-0 ps-0" id="password" placeholder="Password" required>
+                                    <span class="input-group-text bg-white border-start-0 cursor-pointer" id="togglePassword" style="cursor: pointer;">
+                                        <i class="bi bi-eye-slash" id="toggleIcon"></i>
+                                    </span>
+                                    <div class="invalid-feedback">
+                                        Password is required.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Remember & Forgot -->
+                            <div class="d-flex justify-content-between align-items-center mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rememberMe">
+                                    <label class="form-check-label text-muted small" for="rememberMe">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <a href="#" class="text-decoration-none small fw-semibold" style="color: var(--primary-color);">Forgot Password?</a>
+                            </div>
+
+                            <!-- Submit Button -->
+                            <div class="d-grid mb-3">
+                                <button type="submit" class="btn btn-primary-custom btn-block text-white" id="submitBtn">
+                                    <span id="btnText">Sign In</span>
+                                    <span id="btnSpinner" class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Divider -->
+                        <div class="divider">Or continue with</div>
+
+                        <!-- Social Buttons -->
+                        <div class="row g-2 mb-4">
+                            <div class="col-6">
+                                <button type="button" class="btn btn-outline-secondary social-btn d-flex align-items-center justify-content-center gap-2">
+                                    <i class="bi bi-google"></i> Google
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button type="button" class="btn btn-outline-secondary social-btn d-flex align-items-center justify-content-center gap-2">
+                                    <i class="bi bi-apple"></i> Apple
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <div class="card-footer bg-white text-center py-3 border-0">
+                        <p class="text-muted small mb-0">Don't have an account? <a href="#" class="fw-bold text-decoration-none" style="color: var(--primary-color);">Sign up</a></p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('loginForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = document.getElementById('btnText');
+            const btnSpinner = document.getElementById('btnSpinner');
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('password');
+            const toggleIcon = document.getElementById('toggleIcon');
+            const alertBox = document.getElementById('loginAlert');
+            const alertMessage = document.getElementById('alertMessage');
+
+            // 1. Password Visibility Toggle Logic
+            togglePassword.addEventListener('click', function() {
+                // Toggle the type attribute
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                // Toggle the eye icon
+                toggleIcon.classList.toggle('bi-eye');
+                toggleIcon.classList.toggle('bi-eye-slash');
+            });
+
+            // 2. Form Validation & Submission Logic
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                event.stopPropagation();
+
+                // Check Bootstrap validation state
+                if (form.checkValidity()) {
+                    handleLogin();
+                }
+
+                form.classList.add('was-validated');
+            }, false);
+
+            function handleLogin() {
+                // UI Loading State
+                submitBtn.disabled = true;
+                btnText.textContent = "Signing in...";
+                btnSpinner.classList.remove('d-none');
+                hideAlert(); // Clear previous errors
+
+                const email = document.getElementById('email').value;
+                const password = document.getElementById('password').value;
+
+                // Simulate Server Request (2 seconds delay)
+                setTimeout(() => {
+                    // Reset UI State
+                    submitBtn.disabled = false;
+                    btnText.textContent = "Sign In";
+                    btnSpinner.classList.add('d-none');
+
+                    // Simple Mock Validation Logic
+                    // In a real app, this would be an API call (fetch/axios)
+                    if (password.length < 6) {
+                        showAlert("Invalid credentials. Password must be at least 6 characters.", "danger");
+                    } else {
+                        // Success Scenario
+                        showAlert("Login successful! Redirecting...", "success");
+                        
+                        // Optional: Change alert style to success green
+                        alertBox.classList.remove('alert-danger');
+                        alertBox.classList.add('alert-success');
+
+                        // Simulate redirect
+                        setTimeout(() => {
+                           // window.location.href = "/dashboard"; 
+                           console.log("Redirecting to dashboard...");
+                        }, 1500);
+                    }
+                }, 2000);
+            }
+
+            // Helper: Show Alert
+            function showAlert(message, type) {
+                alertMessage.textContent = message;
+                alertBox.style.display = 'block';
+                
+                // Re-trigger animation
+                alertBox.classList.remove('show');
+                void alertBox.offsetWidth; // trigger reflow
+                alertBox.classList.add('show');
+            }
+
+            // Helper: Hide Alert (Global function for the close button)
+            window.hideAlert = function() {
+                alertBox.style.display = 'none';
+                // Reset to danger style for next potential error
+                alertBox.classList.remove('alert-success');
+                alertBox.classList.add('alert-danger');
+            };
+        });
+    </script>
+</body>
+</html>
