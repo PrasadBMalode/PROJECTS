@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartUp - Modern Bootstrap Landing Page</title>
+    <!-- Bootstrap 5 CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <style>
+        /* Minimal Custom Styles to enhance Bootstrap defaults */
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            padding-top: 76px; /* Offset for fixed navbar */
+        }
+
+        /* Hero Section Gradient */
+        .hero-section {
+            background: linear-gradient(135deg, #0d6efd 0%, #0a58ca 100%);
+            color: white;
+            padding: 80px 0;
+        }
+
+        /* Feature Icon styling */
+        .feature-icon {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            background-color: rgba(13, 110, 253, 0.1);
+            color: #0d6efd;
+        }
+
+        /* Pricing Card Hover Effect */
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        /* Smooth scrolling for anchor links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="bi bi-rocket-takeoff-fill me-2"></i>StartUp
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#pricing">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-primary btn-sm rounded-pill px-4" href="#contact">Get Started</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-5 mb-lg-0">
+                    <h1 class="display-4 fw-bold mb-3">Build Faster with StartUp</h1>
+                    <p class="lead mb-4 opacity-75">Create stunning, responsive websites with our powerful platform. Join thousands of developers building the future today.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#features" class="btn btn-light btn-lg px-4 fw-bold text-primary">Learn More</a>
+                        <a href="#contact" class="btn btn-outline-light btn-lg px-4">Contact Sales</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 text-center">
+                    <!-- Placeholder Image -->
+                    <img src="https://picsum.photos/seed/tech/600/400" alt="Dashboard Preview" class="img-fluid rounded shadow-lg border border-4 border-white border-opacity-25">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Why Choose Us?</h2>
+                <p class="text-muted">We provide everything you need to scale your business.</p>
+            </div>
+            <div class="row g-4">
+                <!-- Feature 1 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="bi bi-speedometer2"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Fast Performance</h4>
+                            <p class="card-text text-muted">Optimized for speed so your users never have to wait.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Feature 2 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Secure by Default</h4>
+                            <p class="card-text text-muted">Enterprise-grade security to keep your data safe.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Feature 3 -->
+                <div class="col-md-4">
+                    <div class="card h-100 border-0 bg-transparent">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mx-auto">
+                                <i class="bi bi-cloud-arrow-up"></i>
+                            </div>
+                            <h4 class="card-title fw-bold">Cloud Sync</h4>
+                            <p class="card-text text-muted">Real-time synchronization across all your devices.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5">
+        <div class="container py-5">
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0">
+                    <img src="https://picsum.photos/seed/office/600/450" alt="Our Team" class="img-fluid rounded shadow">
+                </div>
+                <div class="col-lg-6 ps-lg-5">
+                    <h2 class="fw-bold mb-3">We are passionate about design</h2>
+                    <p class="text-muted">Founded in 2023, StartUp has helped over 5,000 businesses establish their online presence. We believe in clean code, intuitive design, and customer success.</p>
+                    <ul class="list-unstyled mt-4">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Expert Team Support</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> 99.9% Uptime Guarantee</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> 24/7 Monitoring</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Carousel -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container py-4 text-center">
+            <h2 class="fw-bold mb-5">What our clients say</h2>
+            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <p class="fs-4 fst-italic mb-4">"This platform completely transformed how we handle our web projects. Highly recommended!"</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="https://picsum.photos/seed/user1/50/50" class="rounded-circle border border-2 border-white me-3" alt="User 1">
+                            <div class="text-start">
+                                <strong class="d-block">Sarah Johnson</strong>
+                                <small>CEO, TechFlow</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="fs-4 fst-italic mb-4">"The support team is incredible. They helped us set up everything in less than a day."</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="https://picsum.photos/seed/user2/50/50" class="rounded-circle border border-2 border-white me-3" alt="User 2">
+                            <div class="text-start">
+                                <strong class="d-block">Michael Lee</strong>
+                                <small>CTO, Innovate Inc</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <p class="fs-4 fst-italic mb-4">"Beautiful templates and very easy to customize. Best investment we made this year."</p>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <img src="https://picsum.photos/seed/user3/50/50" class="rounded-circle border border-2 border-white me-3" alt="User 3">
+                            <div class="text-start">
+                                <strong class="d-block">Emily Davis</strong>
+                                <small>Marketing Dir, Creative Co</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-5">
+        <div class="container py-5">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Simple Pricing</h2>
+                <p class="text-muted">Choose the plan that fits your needs.</p>
+            </div>
+            <div class="row g-4 align-items-center">
+                <!-- Basic Plan -->
+                <div class="col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <h5 class="card-title text-muted mb-3">Starter</h5>
+                            <h2 class="card-title fw-bold mb-4">$0<span class="fs-6 text-muted fw-normal">/mo</span></h2>
+                            <ul class="list-unstyled mb-4 text-start mx-auto" style="max-width: 200px;">
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> 1 Project</li>
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> Basic Analytics</li>
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> 24h Support</li>
+                                <li class="text-muted"><i class="bi bi-x-lg me-2"></i> Custom Domain</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary w-100 rounded-pill">Sign Up Free</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Pro Plan (Highlighted) -->
+                <div class="col-lg-4">
+                    <div class="card h-100 shadow-lg border-primary border-2">
+                        <div class="card-body p-4 text-center position-relative">
+                            <span class="position-absolute top-0 start-50 translate-middle badge rounded-pill bg-primary">Most Popular</span>
+                            <h5 class="card-title text-primary mb-3 mt-2">Professional</h5>
+                            <h2 class="card-title fw-bold mb-4">$29<span class="fs-6 text-muted fw-normal">/mo</span></h2>
+                            <ul class="list-unstyled mb-4 text-start mx-auto" style="max-width: 200px;">
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> 10 Projects</li>
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> Advanced Analytics</li>
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> Priority Support</li>
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> Custom Domain</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary w-100 rounded-pill">Get Started</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Enterprise Plan -->
+                <div class="col-lg-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body p-4 text-center">
+                            <h5 class="card-title text-muted mb-3">Enterprise</h5>
+                            <h2 class="card-title fw-bold mb-4">$99<span class="fs-6 text-muted fw-normal">/mo</span></h2>
+                            <ul class="list-unstyled mb-4 text-start mx-auto" style="max-width: 200px;">
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> Unlimited Projects</li>
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> Full Analytics Suite</li>
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> 24/7 Dedicated Support</li>
+                                <li class="mb-2"><i class="bi bi-check-lg text-success me-2"></i> White Labeling</li>
+                            </ul>
+                            <a href="#" class="btn btn-outline-primary w-100 rounded-pill">Contact Sales</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Accordion -->
+    <section id="faq" class="py-5 bg-light">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="text-center mb-5">
+                        <h2 class="fw-bold">Frequently Asked Questions</h2>
+                    </div>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item mb-3 border-0 shadow-sm rounded overflow-hidden">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    Can I cancel my subscription at any time?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Yes, you can cancel your subscription at any time. No questions asked. Your access will remain active until the end of your billing period.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3 border-0 shadow-sm rounded overflow-hidden">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    Do you offer a free trial?
+                                </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Absolutely! We offer a 14-day free trial for our Professional and Enterprise plans so you can explore all features risk-free.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item mb-3 border-0 shadow-sm rounded overflow-hidden">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Is my data secure?
+                                </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    We use industry-standard encryption and backup protocols to ensure your data is safe, secure, and always available.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 bg-dark text-white text-center">
+        <div class="container py-4">
+            <h2 class="fw-bold mb-3">Ready to start your journey?</h2>
+            <p class="text-white-50 mb-4">Join 10,000+ happy customers today.</p>
+            <a href="#" class="btn btn-primary btn-lg rounded-pill px-5">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-white pt-5 pb-3 border-top">
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="fw-bold mb-3"><i class="bi bi-rocket-takeoff-fill me-2"></i>StartUp</h5>
+                    <p class="text-muted small">Making the web a better place, one pixel at a time. We build tools for developers and designers.</p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-muted fs-5"><i class="bi bi-twitter"></i></a>
+                        <a href="#" class="text-muted fs-5"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="text-muted fs-5"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="text-muted fs-5"><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Product</h6>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Features</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Pricing</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">API</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Integrations</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h6 class="fw-bold mb-3">Company</h6>
+                    <ul class="list-unstyled text-muted small">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">About</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-muted">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h6 class="fw-bold mb-3">Stay up to date</h6>
+                    <p class="text-muted small">Subscribe to our newsletter for the latest updates.</p>
+                    <form class="input-group">
+                        <input type="email" class="form-control" placeholder="Email address" aria-label="Email address">
+                        <button class="btn btn-primary" type="button">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center text-muted small">
+                &copy; 2023 StartUp Inc. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
