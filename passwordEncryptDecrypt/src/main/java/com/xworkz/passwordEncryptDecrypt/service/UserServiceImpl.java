@@ -34,4 +34,20 @@ public class UserServiceImpl implements UserService {
             return "Registration failed";
         }
     }
+
+    @Override
+    public boolean signIn(String email, String password) {
+        UserEntity user = userDAO.signIn(email);
+
+        if (user==null){
+            return false;
+        }
+
+        String decrypt = encryptDecrypt.decrypt(user.getPassword());
+        System.out.println("password Decryption  "+decrypt);
+        if (decrypt.equals(password)){
+            return true;
+        }
+        return false;
+    }
 }

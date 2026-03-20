@@ -7,9 +7,10 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 @Repository
-public class DAOImpl implements UserDAO{
+public class UserDAOImpl implements UserDAO{
 
     @Autowired
     EntityManagerFactory entityManagerFactory;
@@ -26,6 +27,25 @@ public class DAOImpl implements UserDAO{
         }catch (Exception e){
             System.out.println(e.getMessage());
             return false;
+        }
+    }
+
+    @Override
+    public UserEntity signIn(String email) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        try {
+            EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+            Query query = entityManager.createNamedQuery("findByEmail");
+            query.setParameter("email",email);
+            UserEntity singleResult = (UserEntity)query.getSingleResult();
+           return singleResult;
+
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }finally {
+            entityManager.close();
         }
     }
 }

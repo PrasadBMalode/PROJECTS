@@ -19,6 +19,11 @@ public class UserController {
         System.out.println("UserController..");
     }
 
+    @PostMapping("/signUp")
+    public String signUp(){
+        return "signUp";
+    }
+
     @PostMapping("/register")
     public String register(UserDTO userDTO, Model model){
         String save = userService.save(userDTO);
@@ -27,6 +32,19 @@ public class UserController {
         }else if (save.equalsIgnoreCase("Registration failed")){
             model.addAttribute("registerFail",save);
         }
-        return "index";
+        return "signUp";
+    }
+
+    @PostMapping("/signIn")
+    public String signIn(String email, String password,Model model){
+
+        boolean signInValidation = userService.signIn(email, password);
+        if (signInValidation){
+            model.addAttribute("signInSuccess","SignIn Successfully");
+            return "signIn";
+        }else {
+            model.addAttribute("signInFail", "SignIn Failed");
+            return "signIn";
+        }
     }
 }

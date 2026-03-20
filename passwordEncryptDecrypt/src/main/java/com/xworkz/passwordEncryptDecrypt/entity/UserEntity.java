@@ -11,7 +11,8 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "ED_TB")
-public class UserEntity {
+@NamedQuery(name = "findByEmail",query = "SELECT u FROM UserEntity u WHERE u.email = :email"
+)public class UserEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
