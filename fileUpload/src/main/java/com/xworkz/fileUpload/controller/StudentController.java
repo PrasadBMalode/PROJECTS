@@ -1,13 +1,14 @@
 package com.xworkz.fileUpload.controller;
 
 import com.xworkz.fileUpload.dto.StudentDTO;
+import org.apache.commons.io.IOUtils;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServletResponse;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -26,6 +27,23 @@ public class StudentController {
         byte[] imagSize = fileName.getBytes();
         Path imagePath= Paths.get("J:\\xworkz\\projectImages\\"+fileName.getOriginalFilename()+System.currentTimeMillis()+".jpg");
         Files.write(imagePath,imagSize);
+        System.out.println(imagePath);
         return "index";
+    }
+
+    @GetMapping("/image")
+    public String image(){
+        return "image";
+    }
+
+    @GetMapping("/download")
+    public void getImage(HttpServletResponse httpServletResponse, @RequestParam String imagePath) throws IOException {
+        httpServletResponse.setContentType("image/jpg");
+        File file=new File(imagePath);
+        InputStream inputStream=new BufferedInputStream(new FileInputStream(file));
+        ServletOutputStream servletOutputStream=httpServletResponse.getOutputStream();
+        IOUtils.copy(inputStream,servletOutputStream);
+        httpServletResponse.flushBuffer();
+
     }
 }

@@ -24,5 +24,8 @@
 
     </form>
 
+    <a href="image">Get image</a>
+
+
 </body>
 </html>
