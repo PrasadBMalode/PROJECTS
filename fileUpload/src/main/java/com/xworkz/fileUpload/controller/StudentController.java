@@ -1,7 +1,9 @@
 package com.xworkz.fileUpload.controller;
 
 import com.xworkz.fileUpload.dto.StudentDTO;
+import com.xworkz.fileUpload.util.SendMail;
 import org.apache.commons.io.IOUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -20,6 +22,9 @@ public class StudentController {
         System.out.println("controller...");
     }
 
+    @Autowired
+    SendMail sendMail;
+
     @PostMapping("/upload")
     public String upload(@ModelAttribute StudentDTO studentDTO) throws IOException {
         System.out.println(studentDTO);
@@ -33,6 +38,7 @@ public class StudentController {
 
     @GetMapping("/image")
     public String image(){
+        sendMail.sendMail();
         return "image";
     }
 
