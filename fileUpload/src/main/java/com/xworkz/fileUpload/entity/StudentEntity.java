@@ -3,7 +3,7 @@ package com.xworkz.fileUpload.entity;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartResolver;
+
 
 import javax.persistence.*;
 
@@ -20,6 +20,6 @@ public class StudentEntity {
 
     private String name;
 
-    private MultipartFile fileName;
+    private String fileName;
 
 }

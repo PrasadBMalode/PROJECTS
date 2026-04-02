@@ -15,30 +15,22 @@ public class SendMail {
 
     public String getOTP(){
         Random random =  new Random();
-        return  String.valueOf(random.nextInt(99999));
-    }
+        int otp =100000+ random.nextInt(900000);
+        return  String.valueOf(otp);
 
-    public  void sendMail(){
+    }
+    public String sendMail(){
         String otp = getOTP();
-        SimpleMailMessage mailMessage =  new SimpleMailMessage();
+
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setFrom("malodeprasad666@gmail.com");
         mailMessage.setTo("prasadbm666@gmail.com");
-        mailMessage.setSubject("otp");
-        mailMessage.setText(otp);
+        mailMessage.setSubject("OTP");
+        mailMessage.setText("Your OTP is: " + otp);
+
         javaMailSender.send(mailMessage);
+
+        return otp;
     }
-
-
-    public void sendSimpleMessage(String to, String subject, String text) {
-
-        SimpleMailMessage message = new SimpleMailMessage();
-        message.setFrom("noreply@baeldung.com");
-        message.setTo();
-        message.setSubject(subject);
-        message.setText(text);
-        javaMailSender.send(message);
-
-    }
-
 
 }

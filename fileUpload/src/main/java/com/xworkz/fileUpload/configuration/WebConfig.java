@@ -1,5 +1,7 @@
 package com.xworkz.fileUpload.configuration;
 
+
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -23,6 +25,13 @@ public class WebConfig {
     public WebConfig(){
         System.out.println("configuring...");
     }
+
+//    @Value("${mail.username}")
+//    private String username;
+
+//    @Value("${mail.password}")
+//    private String password;
+
     @Bean
     public ViewResolver viewResolver() {
         return new InternalResourceViewResolver("/", ".jsp");
@@ -31,7 +40,7 @@ public class WebConfig {
     @Bean
     public LocalContainerEntityManagerFactoryBean localContainerEntityManagerFactoryBean() {
         LocalContainerEntityManagerFactoryBean factoryBean = new LocalContainerEntityManagerFactoryBean();
-        factoryBean.setPackagesToScan("com.xworkz.xworkz_Prasad_Modules.entity");
+        factoryBean.setPackagesToScan("com.xworkz.fileUpload.entity");
         factoryBean.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
         factoryBean.setDataSource(dataSource());
         factoryBean.setJpaProperties(properties());
@@ -59,8 +68,8 @@ public class WebConfig {
     @Bean("multipartResolver")
     public CommonsMultipartResolver commonsMultipartResolver(){
         CommonsMultipartResolver commonsMultipartResolver=new CommonsMultipartResolver();
-        commonsMultipartResolver.setMaxUploadSize(120574);
-        commonsMultipartResolver.setMaxInMemorySize(120574);
+        commonsMultipartResolver.setMaxUploadSize(5 * 1024 * 1024); // 5MB
+        commonsMultipartResolver.setMaxInMemorySize(5 * 1024 * 1024);
         return commonsMultipartResolver;
     }
 
@@ -72,14 +81,14 @@ public class WebConfig {
         javaMailSender.setPort(587);
 
         javaMailSender.setUsername("malodeprasad666@gmail.com");
-        javaMailSender.setPassword("gezc chxy gddf esad");
+        javaMailSender.setPassword("fglw fepj xaum mgac");
 
         Properties properties = javaMailSender.getJavaMailProperties();
-        Properties props = javaMailSender.getJavaMailProperties();
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.smtp.auth", "true");
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.debug", "true");
+
+        properties.put("mail.transport.protocol", "smtp");
+        properties.put("mail.smtp.auth", "true");
+        properties.put("mail.smtp.starttls.enable", "true");
+        properties.put("mail.debug", "true");
 
         return  javaMailSender;
     }
