@@ -25,12 +25,7 @@ public class WebConfig {
     public WebConfig(){
         System.out.println("configuring...");
     }
-
-//    @Value("${mail.username}")
-//    private String username;
-
-//    @Value("${mail.password}")
-//    private String password;
+    
 
     @Bean
     public ViewResolver viewResolver() {
